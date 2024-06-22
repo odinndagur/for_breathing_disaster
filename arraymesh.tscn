@@ -1,9 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://djm3tkyksdxqd"]
+[gd_scene load_steps=14 format=3 uid="uid://djm3tkyksdxqd"]
 
+[ext_resource type="Shader" path="res://film_grain.gdshader" id="1_0d2mi"]
 [ext_resource type="Script" path="res://sun_control.gd" id="1_w1q6a"]
 [ext_resource type="Script" path="res://arraymesh.gd" id="1_wiulw"]
+[ext_resource type="Shader" path="res://chromatic_aberration.gdshader" id="2_gkvrp"]
 [ext_resource type="AudioStream" uid="uid://cv78htja5i60q" path="res://bridgesx.ogg" id="2_tnkkp"]
 [ext_resource type="Script" path="res://camera_control.gd" id="4_qm3fw"]
+[ext_resource type="Script" path="res://fps_label.gd" id="5_4rlg5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdjcc"]
+shader = ExtResource("1_0d2mi")
+shader_parameter/grain_amount = 0.051
+shader_parameter/grain_size = 1.445
+shader_parameter/animate = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l4504"]
+shader = ExtResource("2_gkvrp")
+shader_parameter/r_displacement = Vector2(3, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-3, 0)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mj5wf"]
 sky_horizon_color = Color(0.59625, 0.6135, 0.6375, 1)
@@ -26,6 +41,26 @@ fog_light_energy = 0.0
 
 [node name="Node3D" type="Node3D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="filmgrain" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_cdjcc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="chromatic" type="ColorRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_l4504")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a5n0t")
 
@@ -42,8 +77,15 @@ script = ExtResource("1_wiulw")
 stream = ExtResource("2_tnkkp")
 autoplay = true
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.61862)
 script = ExtResource("4_qm3fw")
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.03352)
+fov = 37.8493
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("5_4rlg5")
