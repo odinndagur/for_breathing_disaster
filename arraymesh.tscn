@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://djm3tkyksdxqd"]
+
+[ext_resource type="Script" path="res://arraymesh.gd" id="1_wiulw"]
+[ext_resource type="AudioStream" uid="uid://cv78htja5i60q" path="res://bridgesx.ogg" id="2_tnkkp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mj5wf"]
+sky_horizon_color = Color(0.59625, 0.6135, 0.6375, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.59625, 0.6135, 0.6375, 1)
+
+[sub_resource type="Sky" id="Sky_xfghn"]
+sky_material = SubResource("ProceduralSkyMaterial_mj5wf")
+
+[sub_resource type="Environment" id="Environment_a5n0t"]
+background_mode = 2
+sky = SubResource("Sky_xfghn")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+fog_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1fl44"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a5n0t")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.31444, -0.822098, 0.474639, 6.86753e-08, 0.5, 0.866026, -0.949277, 0.272313, -0.15722, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_1fl44")
+script = ExtResource("1_wiulw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MeshInstance3D"]
+stream = ExtResource("2_tnkkp")
+autoplay = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.03352)
