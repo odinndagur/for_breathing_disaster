@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://djm3tkyksdxqd"]
+
+[ext_resource type="Script" path="res://kulan.gd" id="1_6ych5"]
+[ext_resource type="Script" path="res://sun_control.gd" id="4_5a4py"]
+[ext_resource type="Script" path="res://arraymesh.gd" id="5_kxn7e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mj5wf"]
+sky_horizon_color = Color(0.59625, 0.6135, 0.6375, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.59625, 0.6135, 0.6375, 1)
+
+[sub_resource type="Sky" id="Sky_xfghn"]
+sky_material = SubResource("ProceduralSkyMaterial_mj5wf")
+
+[sub_resource type="Environment" id="Environment_a5n0t"]
+background_mode = 2
+sky = SubResource("Sky_xfghn")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+fog_enabled = true
+fog_light_energy = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whw6w"]
+albedo_color = Color(1, 1, 1, 0.290196)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1fl44"]
+
+[node name="kulan" type="Node3D"]
+script = ExtResource("1_6ych5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a5n0t")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.31444, -0.822098, 0.474639, 6.86753e-08, 0.5, 0.866026, -0.949277, 0.272313, -0.15722, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("4_5a4py")
+
+[node name="kulan" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_whw6w")
+mesh = SubResource("ArrayMesh_1fl44")
+script = ExtResource("5_kxn7e")
+
+[node name="seethru" type="CheckButton" parent="."]
+offset_top = 120.0
+offset_right = 204.0
+offset_bottom = 151.0
+text = "seethru"
+
+[connection signal="toggled" from="seethru" to="kulan" method="_on_seethru_toggled"]

@@ -119,3 +119,11 @@ func _process(delta):
 ##		draw_rect(Rect2(w * i, HEIGHT - height, w, height), clr)
 #		prev_hz = hz
 #
+
+
+func _on_seethru_toggled(button_pressed):
+	if button_pressed:
+		material_override.transparency = 1
+	else:
+		material_override.transparency = 0
+	
