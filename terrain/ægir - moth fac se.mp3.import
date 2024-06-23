@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1vjdgd02fl4c"
+path="res://.godot/imported/ægir - moth fac se.mp3-e4ff694d7fc033e14f59f7b97d170da2.mp3str"
+
+[deps]
+
+source_file="res://ægir - moth fac se.mp3"
+dest_files=["res://.godot/imported/ægir - moth fac se.mp3-e4ff694d7fc033e14f59f7b97d170da2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

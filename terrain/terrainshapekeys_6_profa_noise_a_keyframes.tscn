@@ -1,0 +1,510 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckef62gvev2ye"]
+
+[ext_resource type="PackedScene" uid="uid://cnl1xmk5mm6ou" path="res://terrainshapekeys_6_profa_noise_a_keyframes.blend" id="1_gjgej"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bou1a"]
+
+[node name="terrainshapekeys_6_profa_noise_a_keyframes" instance=ExtResource("1_gjgej")]
+
+[node name="Camera" parent="." index="0"]
+visible = false
+
+[node name="Sun" parent="." index="1"]
+transform = Transform3D(-0.796885, 0.509083, 0.325282, 0.590421, 0.542217, 0.597833, 0.127973, 0.668457, -0.732658, 0, 0, 0)
+visible = false
+light_energy = 0.0
+sky_mode = 2
+
+[node name="0_0" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_bou1a")
+metadata/_edit_group_ = true
+
+[node name="1_0" parent="." index="3"]
+metadata/_edit_group_ = true
+
+[node name="2_0" parent="." index="4"]
+metadata/_edit_group_ = true
+
+[node name="3_0" parent="." index="5"]
+metadata/_edit_group_ = true
+
+[node name="4_0" parent="." index="6"]
+metadata/_edit_group_ = true
+
+[node name="5_0" parent="." index="7"]
+metadata/_edit_group_ = true
+
+[node name="6_0" parent="." index="8"]
+metadata/_edit_group_ = true
+
+[node name="7_0" parent="." index="9"]
+metadata/_edit_group_ = true
+
+[node name="8_0" parent="." index="10"]
+metadata/_edit_group_ = true
+
+[node name="0_1" parent="." index="11"]
+metadata/_edit_group_ = true
+
+[node name="1_1" parent="." index="12"]
+metadata/_edit_group_ = true
+
+[node name="2_1" parent="." index="13"]
+metadata/_edit_group_ = true
+
+[node name="3_1" parent="." index="14"]
+metadata/_edit_group_ = true
+
+[node name="4_1" parent="." index="15"]
+metadata/_edit_group_ = true
+
+[node name="5_1" parent="." index="16"]
+metadata/_edit_group_ = true
+
+[node name="6_1" parent="." index="17"]
+metadata/_edit_group_ = true
+
+[node name="7_1" parent="." index="18"]
+metadata/_edit_group_ = true
+
+[node name="8_1" parent="." index="19"]
+metadata/_edit_group_ = true
+
+[node name="0_2" parent="." index="20"]
+metadata/_edit_group_ = true
+
+[node name="1_2" parent="." index="21"]
+metadata/_edit_group_ = true
+
+[node name="2_2" parent="." index="22"]
+metadata/_edit_group_ = true
+
+[node name="3_2" parent="." index="23"]
+metadata/_edit_group_ = true
+
+[node name="4_2" parent="." index="24"]
+metadata/_edit_group_ = true
+
+[node name="5_2" parent="." index="25"]
+metadata/_edit_group_ = true
+
+[node name="6_2" parent="." index="26"]
+metadata/_edit_group_ = true
+
+[node name="7_2" parent="." index="27"]
+metadata/_edit_group_ = true
+
+[node name="8_2" parent="." index="28"]
+metadata/_edit_group_ = true
+
+[node name="0_3" parent="." index="29"]
+metadata/_edit_group_ = true
+
+[node name="1_3" parent="." index="30"]
+metadata/_edit_group_ = true
+
+[node name="2_3" parent="." index="31"]
+metadata/_edit_group_ = true
+
+[node name="3_3" parent="." index="32"]
+metadata/_edit_group_ = true
+
+[node name="4_3" parent="." index="33"]
+metadata/_edit_group_ = true
+
+[node name="5_3" parent="." index="34"]
+metadata/_edit_group_ = true
+
+[node name="6_3" parent="." index="35"]
+metadata/_edit_group_ = true
+
+[node name="7_3" parent="." index="36"]
+metadata/_edit_group_ = true
+
+[node name="8_3" parent="." index="37"]
+metadata/_edit_group_ = true
+
+[node name="0_4" parent="." index="38"]
+metadata/_edit_group_ = true
+
+[node name="1_4" parent="." index="39"]
+metadata/_edit_group_ = true
+
+[node name="2_4" parent="." index="40"]
+metadata/_edit_group_ = true
+
+[node name="3_4" parent="." index="41"]
+metadata/_edit_group_ = true
+
+[node name="4_4" parent="." index="42"]
+metadata/_edit_group_ = true
+
+[node name="5_4" parent="." index="43"]
+metadata/_edit_group_ = true
+
+[node name="6_4" parent="." index="44"]
+metadata/_edit_group_ = true
+
+[node name="7_4" parent="." index="45"]
+metadata/_edit_group_ = true
+
+[node name="8_4" parent="." index="46"]
+metadata/_edit_group_ = true
+
+[node name="0_5" parent="." index="47"]
+metadata/_edit_group_ = true
+
+[node name="1_5" parent="." index="48"]
+metadata/_edit_group_ = true
+
+[node name="2_5" parent="." index="49"]
+metadata/_edit_group_ = true
+
+[node name="3_5" parent="." index="50"]
+metadata/_edit_group_ = true
+
+[node name="4_5" parent="." index="51"]
+metadata/_edit_group_ = true
+
+[node name="5_5" parent="." index="52"]
+metadata/_edit_group_ = true
+
+[node name="6_5" parent="." index="53"]
+metadata/_edit_group_ = true
+
+[node name="7_5" parent="." index="54"]
+metadata/_edit_group_ = true
+
+[node name="8_5" parent="." index="55"]
+metadata/_edit_group_ = true
+
+[node name="0_6" parent="." index="56"]
+metadata/_edit_group_ = true
+
+[node name="1_6" parent="." index="57"]
+metadata/_edit_group_ = true
+
+[node name="2_6" parent="." index="58"]
+metadata/_edit_group_ = true
+
+[node name="3_6" parent="." index="59"]
+metadata/_edit_group_ = true
+
+[node name="4_6" parent="." index="60"]
+metadata/_edit_group_ = true
+
+[node name="5_6" parent="." index="61"]
+metadata/_edit_group_ = true
+
+[node name="6_6" parent="." index="62"]
+metadata/_edit_group_ = true
+
+[node name="7_6" parent="." index="63"]
+metadata/_edit_group_ = true
+
+[node name="8_6" parent="." index="64"]
+metadata/_edit_group_ = true
+
+[node name="0_7" parent="." index="65"]
+metadata/_edit_group_ = true
+
+[node name="1_7" parent="." index="66"]
+metadata/_edit_group_ = true
+
+[node name="2_7" parent="." index="67"]
+metadata/_edit_group_ = true
+
+[node name="3_7" parent="." index="68"]
+metadata/_edit_group_ = true
+
+[node name="4_7" parent="." index="69"]
+metadata/_edit_group_ = true
+
+[node name="5_7" parent="." index="70"]
+metadata/_edit_group_ = true
+
+[node name="6_7" parent="." index="71"]
+metadata/_edit_group_ = true
+
+[node name="7_7" parent="." index="72"]
+metadata/_edit_group_ = true
+
+[node name="8_7" parent="." index="73"]
+metadata/_edit_group_ = true
+
+[node name="0_8" parent="." index="74"]
+metadata/_edit_group_ = true
+
+[node name="1_8" parent="." index="75"]
+metadata/_edit_group_ = true
+
+[node name="2_8" parent="." index="76"]
+metadata/_edit_group_ = true
+
+[node name="3_8" parent="." index="77"]
+metadata/_edit_group_ = true
+
+[node name="4_8" parent="." index="78"]
+metadata/_edit_group_ = true
+
+[node name="5_8" parent="." index="79"]
+metadata/_edit_group_ = true
+
+[node name="6_8" parent="." index="80"]
+metadata/_edit_group_ = true
+
+[node name="7_8" parent="." index="81"]
+metadata/_edit_group_ = true
+
+[node name="8_8" parent="." index="82"]
+metadata/_edit_group_ = true
+
+[node name="Camera_001" parent="." index="83"]
+metadata/_edit_group_ = true
+
+[node name="Sun_001" parent="." index="84"]
+transform = Transform3D(-0.65265, -0.0668925, 0.754701, 0.662306, 0.433396, 0.611162, -0.367967, 0.898718, -0.238553, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="0_0_001" parent="." index="85"]
+metadata/_edit_group_ = true
+
+[node name="1_0_001" parent="." index="86"]
+metadata/_edit_group_ = true
+
+[node name="2_0_001" parent="." index="87"]
+metadata/_edit_group_ = true
+
+[node name="3_0_001" parent="." index="88"]
+metadata/_edit_group_ = true
+
+[node name="4_0_001" parent="." index="89"]
+metadata/_edit_group_ = true
+
+[node name="5_0_001" parent="." index="90"]
+metadata/_edit_group_ = true
+
+[node name="6_0_001" parent="." index="91"]
+metadata/_edit_group_ = true
+
+[node name="7_0_001" parent="." index="92"]
+metadata/_edit_group_ = true
+
+[node name="8_0_001" parent="." index="93"]
+metadata/_edit_group_ = true
+
+[node name="0_1_001" parent="." index="94"]
+metadata/_edit_group_ = true
+
+[node name="1_1_001" parent="." index="95"]
+metadata/_edit_group_ = true
+
+[node name="2_1_001" parent="." index="96"]
+metadata/_edit_group_ = true
+
+[node name="3_1_001" parent="." index="97"]
+metadata/_edit_group_ = true
+
+[node name="4_1_001" parent="." index="98"]
+metadata/_edit_group_ = true
+
+[node name="5_1_001" parent="." index="99"]
+metadata/_edit_group_ = true
+
+[node name="6_1_001" parent="." index="100"]
+metadata/_edit_group_ = true
+
+[node name="7_1_001" parent="." index="101"]
+metadata/_edit_group_ = true
+
+[node name="8_1_001" parent="." index="102"]
+metadata/_edit_group_ = true
+
+[node name="0_2_001" parent="." index="103"]
+metadata/_edit_group_ = true
+
+[node name="1_2_001" parent="." index="104"]
+metadata/_edit_group_ = true
+
+[node name="2_2_001" parent="." index="105"]
+metadata/_edit_group_ = true
+
+[node name="3_2_001" parent="." index="106"]
+metadata/_edit_group_ = true
+
+[node name="4_2_001" parent="." index="107"]
+metadata/_edit_group_ = true
+
+[node name="5_2_001" parent="." index="108"]
+metadata/_edit_group_ = true
+
+[node name="6_2_001" parent="." index="109"]
+metadata/_edit_group_ = true
+
+[node name="7_2_001" parent="." index="110"]
+metadata/_edit_group_ = true
+
+[node name="8_2_001" parent="." index="111"]
+metadata/_edit_group_ = true
+
+[node name="0_3_001" parent="." index="112"]
+metadata/_edit_group_ = true
+
+[node name="1_3_001" parent="." index="113"]
+metadata/_edit_group_ = true
+
+[node name="2_3_001" parent="." index="114"]
+metadata/_edit_group_ = true
+
+[node name="3_3_001" parent="." index="115"]
+metadata/_edit_group_ = true
+
+[node name="4_3_001" parent="." index="116"]
+metadata/_edit_group_ = true
+
+[node name="5_3_001" parent="." index="117"]
+metadata/_edit_group_ = true
+
+[node name="6_3_001" parent="." index="118"]
+metadata/_edit_group_ = true
+
+[node name="7_3_001" parent="." index="119"]
+metadata/_edit_group_ = true
+
+[node name="8_3_001" parent="." index="120"]
+metadata/_edit_group_ = true
+
+[node name="0_4_001" parent="." index="121"]
+metadata/_edit_group_ = true
+
+[node name="1_4_001" parent="." index="122"]
+metadata/_edit_group_ = true
+
+[node name="2_4_001" parent="." index="123"]
+metadata/_edit_group_ = true
+
+[node name="3_4_001" parent="." index="124"]
+metadata/_edit_group_ = true
+
+[node name="4_4_001" parent="." index="125"]
+metadata/_edit_group_ = true
+
+[node name="5_4_001" parent="." index="126"]
+metadata/_edit_group_ = true
+
+[node name="6_4_001" parent="." index="127"]
+metadata/_edit_group_ = true
+
+[node name="7_4_001" parent="." index="128"]
+metadata/_edit_group_ = true
+
+[node name="8_4_001" parent="." index="129"]
+metadata/_edit_group_ = true
+
+[node name="0_5_001" parent="." index="130"]
+metadata/_edit_group_ = true
+
+[node name="1_5_001" parent="." index="131"]
+metadata/_edit_group_ = true
+
+[node name="2_5_001" parent="." index="132"]
+metadata/_edit_group_ = true
+
+[node name="3_5_001" parent="." index="133"]
+metadata/_edit_group_ = true
+
+[node name="4_5_001" parent="." index="134"]
+metadata/_edit_group_ = true
+
+[node name="5_5_001" parent="." index="135"]
+metadata/_edit_group_ = true
+
+[node name="6_5_001" parent="." index="136"]
+metadata/_edit_group_ = true
+
+[node name="7_5_001" parent="." index="137"]
+metadata/_edit_group_ = true
+
+[node name="8_5_001" parent="." index="138"]
+metadata/_edit_group_ = true
+
+[node name="0_6_001" parent="." index="139"]
+metadata/_edit_group_ = true
+
+[node name="1_6_001" parent="." index="140"]
+metadata/_edit_group_ = true
+
+[node name="2_6_001" parent="." index="141"]
+metadata/_edit_group_ = true
+
+[node name="3_6_001" parent="." index="142"]
+metadata/_edit_group_ = true
+
+[node name="4_6_001" parent="." index="143"]
+metadata/_edit_group_ = true
+
+[node name="5_6_001" parent="." index="144"]
+metadata/_edit_group_ = true
+
+[node name="6_6_001" parent="." index="145"]
+metadata/_edit_group_ = true
+
+[node name="7_6_001" parent="." index="146"]
+metadata/_edit_group_ = true
+
+[node name="8_6_001" parent="." index="147"]
+metadata/_edit_group_ = true
+
+[node name="0_7_001" parent="." index="148"]
+metadata/_edit_group_ = true
+
+[node name="1_7_001" parent="." index="149"]
+metadata/_edit_group_ = true
+
+[node name="2_7_001" parent="." index="150"]
+metadata/_edit_group_ = true
+
+[node name="3_7_001" parent="." index="151"]
+metadata/_edit_group_ = true
+
+[node name="4_7_001" parent="." index="152"]
+metadata/_edit_group_ = true
+
+[node name="5_7_001" parent="." index="153"]
+metadata/_edit_group_ = true
+
+[node name="6_7_001" parent="." index="154"]
+metadata/_edit_group_ = true
+
+[node name="7_7_001" parent="." index="155"]
+metadata/_edit_group_ = true
+
+[node name="8_7_001" parent="." index="156"]
+metadata/_edit_group_ = true
+
+[node name="0_8_001" parent="." index="157"]
+metadata/_edit_group_ = true
+
+[node name="1_8_001" parent="." index="158"]
+metadata/_edit_group_ = true
+
+[node name="2_8_001" parent="." index="159"]
+metadata/_edit_group_ = true
+
+[node name="3_8_001" parent="." index="160"]
+metadata/_edit_group_ = true
+
+[node name="4_8_001" parent="." index="161"]
+metadata/_edit_group_ = true
+
+[node name="5_8_001" parent="." index="162"]
+metadata/_edit_group_ = true
+
+[node name="6_8_001" parent="." index="163"]
+metadata/_edit_group_ = true
+
+[node name="7_8_001" parent="." index="164"]
+metadata/_edit_group_ = true
+
+[node name="8_8_001" parent="." index="165"]
+metadata/_edit_group_ = true
