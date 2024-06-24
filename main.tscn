@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dudloy24afdpr"]
+[gd_scene load_steps=13 format=3 uid="uid://dudloy24afdpr"]
 
 [ext_resource type="Shader" path="res://film_grain.gdshader" id="1_0bm8v"]
 [ext_resource type="PackedScene" uid="uid://djm3tkyksdxqd" path="res://kulan.tscn" id="1_6kmrl"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://controls.gd" id="5_cdmhi"]
 [ext_resource type="Script" path="res://camera_control.gd" id="6_bqdcb"]
 [ext_resource type="Script" path="res://fps_label.gd" id="7_5uh70"]
+[ext_resource type="PackedScene" uid="uid://b35i3y4qqq2qe" path="res://terrain.tscn" id="8_nwng5"]
+[ext_resource type="Script" path="res://sun_control.gd" id="8_sso5v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pudld"]
 shader = ExtResource("1_0bm8v")
@@ -19,6 +21,11 @@ shader = ExtResource("2_vp784")
 shader_parameter/r_displacement = Vector2(3, 0)
 shader_parameter/g_displacement = Vector2(0, 0)
 shader_parameter/b_displacement = Vector2(-3, 0)
+
+[sub_resource type="Environment" id="Environment_rkcr0"]
+fog_enabled = true
+volumetric_fog_density = 0.019
+volumetric_fog_length = 135.0
 
 [node name="main" type="Node3D"]
 
@@ -72,21 +79,40 @@ offset_right = 90.0
 offset_bottom = 108.0
 text = "chromatic aberration"
 
+[node name="kula" type="CheckButton" parent="menu"]
+offset_top = 156.3
+offset_right = 213.0
+offset_bottom = 187.3
+text = "kula"
+
+[node name="terrain" type="CheckButton" parent="menu"]
+offset_top = 189.88
+offset_right = 213.0
+offset_bottom = 220.88
+text = "terrain"
+
 [node name="grain" type="CheckButton" parent="menu"]
 offset_top = 39.0
 offset_right = 212.0
 offset_bottom = 70.0
 text = "grain"
 
-[node name="controls" type="Node3D" parent="menu" node_paths=PackedStringArray("chroma_shader", "grain_shader")]
+[node name="controls" type="Node3D" parent="menu" node_paths=PackedStringArray("chroma_shader", "grain_shader", "camera", "light_slider", "terrain", "kula")]
 script = ExtResource("5_cdmhi")
 chroma_shader = NodePath("../../chromatic aberration shader2/chromatic")
 grain_shader = NodePath("../../grain layer2/filmgrain")
+camera = NodePath("../../camera/Camera3D")
+light_slider = NodePath("../light")
+terrain = NodePath("../../terrain")
+kula = NodePath("../../kulan")
 
 [node name="fps" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("7_5uh70")
+
+[node name="terrain" parent="." instance=ExtResource("8_nwng5")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -15.32, -20.125, -72.59)
 
 [node name="kulan" parent="." instance=ExtResource("1_6kmrl")]
 visible = false
@@ -95,14 +121,22 @@ visible = false
 stream = ExtResource("4_3xxqe")
 autoplay = true
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.31444, -0.822098, 0.474639, 6.86753e-08, 0.5, 0.866025, -0.949277, 0.272313, -0.15722, 0, 0, 4.65214)
+shadow_enabled = true
+script = ExtResource("8_sso5v")
+
 [node name="camera" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.61862)
 script = ExtResource("6_bqdcb")
 
 [node name="Camera3D" type="Camera3D" parent="camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.03352)
+environment = SubResource("Environment_rkcr0")
 fov = 37.8493
 
 [connection signal="value_changed" from="menu/light" to="menu/controls" method="_on_light_value_changed"]
 [connection signal="toggled" from="menu/chroma" to="menu/controls" method="_on_chroma_toggled"]
+[connection signal="toggled" from="menu/kula" to="menu/controls" method="_on_kula_toggled"]
+[connection signal="toggled" from="menu/terrain" to="menu/controls" method="_on_terrain_toggled"]
 [connection signal="toggled" from="menu/grain" to="menu/controls" method="_on_grain_toggled"]
