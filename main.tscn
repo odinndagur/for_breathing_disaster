@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dudloy24afdpr"]
+[gd_scene load_steps=15 format=3 uid="uid://dudloy24afdpr"]
 
 [ext_resource type="Shader" path="res://film_grain.gdshader" id="1_0bm8v"]
 [ext_resource type="PackedScene" uid="uid://djm3tkyksdxqd" path="res://kulan.tscn" id="1_6kmrl"]
@@ -22,8 +22,22 @@ shader_parameter/r_displacement = Vector2(3, 0)
 shader_parameter/g_displacement = Vector2(0, 0)
 shader_parameter/b_displacement = Vector2(-3, 0)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7c8gs"]
+sky_top_color = Color(0.0431373, 0.219608, 0.462745, 1)
+sky_horizon_color = Color(0.921569, 0.529412, 0.478431, 1)
+sky_curve = 0.0699775
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.921569, 0.529412, 0.478431, 1)
+
+[sub_resource type="Sky" id="Sky_r8g6b"]
+sky_material = SubResource("ProceduralSkyMaterial_7c8gs")
+
 [sub_resource type="Environment" id="Environment_rkcr0"]
+background_mode = 2
+sky = SubResource("Sky_r8g6b")
 fog_enabled = true
+fog_density = 0.004
+fog_aerial_perspective = 0.92
 volumetric_fog_density = 0.019
 volumetric_fog_length = 135.0
 
@@ -112,7 +126,7 @@ offset_bottom = 23.0
 script = ExtResource("7_5uh70")
 
 [node name="terrain" parent="." instance=ExtResource("8_nwng5")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -15.32, -20.125, -72.59)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.32, -524.943, -72.59)
 
 [node name="kulan" parent="." instance=ExtResource("1_6kmrl")]
 
