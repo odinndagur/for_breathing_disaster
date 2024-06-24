@@ -5,10 +5,10 @@
 [ext_resource type="Shader" path="res://chromatic_aberration.gdshader" id="2_vp784"]
 [ext_resource type="AudioStream" uid="uid://cv78htja5i60q" path="res://bridgesx.ogg" id="4_3xxqe"]
 [ext_resource type="Script" path="res://controls.gd" id="5_cdmhi"]
-[ext_resource type="Script" path="res://camera_control.gd" id="6_bqdcb"]
 [ext_resource type="Script" path="res://fps_label.gd" id="7_5uh70"]
 [ext_resource type="PackedScene" uid="uid://b35i3y4qqq2qe" path="res://terrain.tscn" id="8_nwng5"]
 [ext_resource type="Script" path="res://sun_control.gd" id="8_sso5v"]
+[ext_resource type="Script" path="res://camera.gd" id="10_up8fs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pudld"]
 shader = ExtResource("1_0bm8v")
@@ -115,7 +115,6 @@ script = ExtResource("7_5uh70")
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -15.32, -20.125, -72.59)
 
 [node name="kulan" parent="." instance=ExtResource("1_6kmrl")]
-visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3xxqe")
@@ -128,12 +127,12 @@ script = ExtResource("8_sso5v")
 
 [node name="camera" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.61862)
-script = ExtResource("6_bqdcb")
 
 [node name="Camera3D" type="Camera3D" parent="camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.03352)
 environment = SubResource("Environment_rkcr0")
 fov = 37.8493
+script = ExtResource("10_up8fs")
 
 [connection signal="value_changed" from="menu/light" to="menu/controls" method="_on_light_value_changed"]
 [connection signal="toggled" from="menu/chroma" to="menu/controls" method="_on_chroma_toggled"]

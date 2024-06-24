@@ -1,13 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://djm3tkyksdxqd"]
+[gd_scene load_steps=10 format=3 uid="uid://djm3tkyksdxqd"]
 
 [ext_resource type="Script" path="res://kulan.gd" id="1_6ych5"]
 [ext_resource type="Script" path="res://sun_control.gd" id="4_5a4py"]
+[ext_resource type="Shader" path="res://kulan.gdshader" id="4_gp8rn"]
 [ext_resource type="Script" path="res://arraymesh.gd" id="5_kxn7e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whw6w"]
 albedo_color = Color(1, 1, 1, 0.290196)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1fl44"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pxl0g"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j055u"]
+noise = SubResource("FastNoiseLite_pxl0g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u5v8c"]
+render_priority = 0
+shader = ExtResource("4_gp8rn")
+shader_parameter/noise = SubResource("NoiseTexture2D_j055u")
 
 [node name="kulan" type="Node3D"]
 script = ExtResource("1_6ych5")
@@ -19,7 +30,13 @@ shadow_enabled = true
 script = ExtResource("4_5a4py")
 
 [node name="kulan" type="MeshInstance3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_whw6w")
+mesh = SubResource("ArrayMesh_1fl44")
+script = ExtResource("5_kxn7e")
+
+[node name="kulan2" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_u5v8c")
 mesh = SubResource("ArrayMesh_1fl44")
 script = ExtResource("5_kxn7e")
 
