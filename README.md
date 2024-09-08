@@ -1,7 +1,7 @@
 # for breathing disaster # 
 *Live visualizer for Bridges for breathing disaster by Ægir Sindri Bjarnason.*
 
-======
 
-
-![Vintage colors alt text](images/vintage_litir.png)
+<picture>
+  <img alt="Image Alt Text" src="images/vintage_litir2.png">
+</picture>
