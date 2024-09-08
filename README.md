@@ -20,7 +20,7 @@ Live visualizer for *BRIDGES IV - for breathing disaster* by Ægir Sindri Bjarna
 " target="_blank"><img src="http://img.youtube.com/vi/Iujgjn5zlJ4/0.jpg" 
 alt="Demo" width="240" height="180" border="10" /></a>
 
-## Doobyshmooby ##
+## for breathing disaster ##
 
 This is a partially audio-reactive live controllable visualizer we made in Godot for a specific live set.
 It has multiple controllable elements that we mapped to a MIDI controller for live performance. It uses
