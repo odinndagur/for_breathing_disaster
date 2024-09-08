@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://is2ck7fkb6ue"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_odslf"]
+
+[sub_resource type="Sky" id="Sky_oe5oj"]
+sky_material = SubResource("ProceduralSkyMaterial_odslf")
+
+[sub_resource type="Environment" id="Environment_tfb07"]
+background_mode = 2
+sky = SubResource("Sky_oe5oj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j04ia"]
+emission_shape = 3
+emission_box_extents = Vector3(14.83, 1.74, 9.31)
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2v6o"]
+emission_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_tkc1x"]
+material = SubResource("StandardMaterial3D_o2v6o")
+radius = 0.05
+height = 0.06
+radial_segments = 32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kx0st"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_ann3t"]
+material = SubResource("StandardMaterial3D_kx0st")
+
+[node name="SpesWindowScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99233, -0.123619, 0, 0.123619, 0.99233, 0, 0.556201, 1.58903)
+environment = SubResource("Environment_tfb07")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.43562, -6.20328)
+amount = 600
+process_material = SubResource("ParticleProcessMaterial_j04ia")
+draw_pass_1 = SubResource("SphereMesh_tkc1x")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(16.3487, 0, 0, 0, 5.40006, 0, 0, 0, 34.5219, 0, -3.15718, 0)
+mesh = SubResource("SphereMesh_ann3t")
+skeleton = NodePath("")

@@ -1,17 +1,49 @@
-[gd_scene load_steps=15 format=3 uid="uid://dudloy24afdpr"]
+[gd_scene load_steps=19 format=3 uid="uid://dudloy24afdpr"]
 
-[ext_resource type="Shader" path="res://film_grain.gdshader" id="1_0bm8v"]
 [ext_resource type="PackedScene" uid="uid://djm3tkyksdxqd" path="res://kulan.tscn" id="1_6kmrl"]
+[ext_resource type="Script" path="res://fucktheworld.gd" id="1_tkf1h"]
+[ext_resource type="Shader" path="res://bw.gdshader" id="2_cyub0"]
 [ext_resource type="Shader" path="res://chromatic_aberration.gdshader" id="2_vp784"]
-[ext_resource type="AudioStream" uid="uid://cv78htja5i60q" path="res://bridgesx.ogg" id="4_3xxqe"]
 [ext_resource type="Script" path="res://controls.gd" id="5_cdmhi"]
 [ext_resource type="Script" path="res://fps_label.gd" id="7_5uh70"]
+[ext_resource type="Script" path="res://AudioStreamController.gd" id="7_arrkq"]
 [ext_resource type="PackedScene" uid="uid://b35i3y4qqq2qe" path="res://terrain.tscn" id="8_nwng5"]
 [ext_resource type="Script" path="res://sun_control.gd" id="8_sso5v"]
-[ext_resource type="Script" path="res://camera.gd" id="10_up8fs"]
+[ext_resource type="AudioStream" uid="uid://csa11l2pnfwl0" path="res://aegir_rennsli_5_sept.wav" id="8_vfhad"]
+[ext_resource type="Environment" uid="uid://whbcnmh62rey" path="res://svarthviti himinn.tres" id="9_0cvf5"]
+[ext_resource type="Script" path="res://camera_control.gd" id="12_24oje"]
+[ext_resource type="PackedScene" uid="uid://is2ck7fkb6ue" path="res://spes_window_scene.tscn" id="12_n3acn"]
+[ext_resource type="Environment" uid="uid://c82rgykrtn4hj" path="res://litadi_himinn.tres" id="14_jxmd2"]
+
+[sub_resource type="Shader" id="Shader_la0ks"]
+code = "shader_type canvas_item;
+
+uniform sampler2D screen_texture : hint_screen_texture;
+uniform float grain_amount : hint_range(0.0, 1.0) = 0.05; // Adjust the amount of grain
+uniform float grain_size : hint_range(0.1, 10.0) = 1.0; // Adjust the size of the grain
+uniform bool animate = false;
+
+void fragment() {
+	// Sample the original screen texture
+	vec4 original_color = texture(screen_texture, SCREEN_UV);
+
+	float noise = 0.0;
+
+	if (animate) {
+		// Generate random noise
+		noise = (fract(sin(dot(UV * TIME, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 2.0;
+	} else {
+		 noise = (fract(sin(dot(UV, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 2.0;
+	}
+	// Add noise to the original color
+	original_color.rgb += noise * grain_amount * grain_size;
+
+	// Clamp the final color to make sure it stays in the valid range
+	COLOR = clamp(original_color, 0.0, 1.0);
+}"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pudld"]
-shader = ExtResource("1_0bm8v")
+shader = SubResource("Shader_la0ks")
 shader_parameter/grain_amount = 0.051
 shader_parameter/grain_size = 1.445
 shader_parameter/animate = true
@@ -22,32 +54,22 @@ shader_parameter/r_displacement = Vector2(3, 0)
 shader_parameter/g_displacement = Vector2(0, 0)
 shader_parameter/b_displacement = Vector2(-3, 0)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7c8gs"]
-sky_top_color = Color(0.0431373, 0.219608, 0.462745, 1)
-sky_horizon_color = Color(0.921569, 0.529412, 0.478431, 1)
-sky_curve = 0.0699775
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.921569, 0.529412, 0.478431, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vl7ud"]
+shader = ExtResource("2_cyub0")
+shader_parameter/saturation = 1.0
 
-[sub_resource type="Sky" id="Sky_r8g6b"]
-sky_material = SubResource("ProceduralSkyMaterial_7c8gs")
-
-[sub_resource type="Environment" id="Environment_rkcr0"]
-background_mode = 2
-sky = SubResource("Sky_r8g6b")
-fog_enabled = true
-fog_density = 0.004
-fog_aerial_perspective = 0.92
-volumetric_fog_density = 0.019
-volumetric_fog_length = 135.0
-
-[node name="main" type="Node3D"]
+[node name="main" type="Node3D" node_paths=PackedStringArray("chroma_shader", "grain_shader", "bw_shader", "cam")]
+script = ExtResource("1_tkf1h")
+chroma_shader = NodePath("chromatic aberration shader2/chromatic")
+grain_shader = NodePath("grain layer2/filmgrain")
+bw_shader = NodePath("bw/bw")
+cam = NodePath("camera/Camera3D")
+destruction_slider = 6.89
 
 [node name="grain layer2" type="CanvasLayer" parent="."]
 layer = 2
 
 [node name="filmgrain" type="ColorRect" parent="grain layer2"]
-visible = false
 material = SubResource("ShaderMaterial_pudld")
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,13 +77,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="chromatic aberration shader2" type="CanvasLayer" parent="."]
 layer = 2
 
 [node name="chromatic" type="ColorRect" parent="chromatic aberration shader2"]
-visible = false
 material = SubResource("ShaderMaterial_201c1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="bw" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="bw" type="ColorRect" parent="bw"]
+material = SubResource("ShaderMaterial_vl7ud")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -70,6 +105,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="menu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="light" type="HSlider" parent="menu"]
 offset_left = 72.0
@@ -121,35 +157,99 @@ terrain = NodePath("../../terrain")
 kula = NodePath("../../kulan")
 
 [node name="fps" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("7_5uh70")
 
 [node name="terrain" parent="." instance=ExtResource("8_nwng5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.32, -524.943, -72.59)
+visible = false
 
 [node name="kulan" parent="." instance=ExtResource("1_6kmrl")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_3xxqe")
-autoplay = true
+stream = ExtResource("8_vfhad")
+script = ExtResource("7_arrkq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.31444, -0.822098, 0.474639, 6.86753e-08, 0.5, 0.866025, -0.949277, 0.272313, -0.15722, 0, 0, 4.65214)
 shadow_enabled = true
 script = ExtResource("8_sso5v")
 
+[node name="Window" type="Window" parent="."]
+position = Vector2i(0, 36)
+size = Vector2i(400, 400)
+
+[node name="Camera3D" type="Camera3D" parent="Window"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12.271, 0)
+environment = ExtResource("9_0cvf5")
+fov = 37.8493
+script = ExtResource("12_24oje")
+
+[node name="grain layer2" type="CanvasLayer" parent="Window"]
+layer = 2
+
+[node name="filmgrain" type="ColorRect" parent="Window/grain layer2"]
+material = SubResource("ShaderMaterial_pudld")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="chromatic aberration shader2" type="CanvasLayer" parent="Window"]
+layer = 2
+
+[node name="chromatic" type="ColorRect" parent="Window/chromatic aberration shader2"]
+material = SubResource("ShaderMaterial_201c1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="bw" type="CanvasLayer" parent="Window"]
+layer = 2
+
+[node name="bw" type="ColorRect" parent="Window/bw"]
+material = SubResource("ShaderMaterial_vl7ud")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Window2" type="Window" parent="."]
+own_world_3d = true
+position = Vector2i(1400, 36)
+size = Vector2i(400, 400)
+visible = false
+
+[node name="SpesWindowScene" parent="Window2" instance=ExtResource("12_n3acn")]
+visible = false
+
 [node name="camera" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.61862)
 
 [node name="Camera3D" type="Camera3D" parent="camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.03352)
-environment = SubResource("Environment_rkcr0")
+environment = ExtResource("14_jxmd2")
 fov = 37.8493
-script = ExtResource("10_up8fs")
+script = ExtResource("12_24oje")
 
+[connection signal="camera_move_speed" from="." to="camera/Camera3D" method="_on_main_camera_move_speed"]
+[connection signal="fov_extra_camera" from="." to="Window/Camera3D" method="_on_main_fov_extra_camera"]
+[connection signal="planet_spin_speed" from="." to="kulan/kulan2" method="_on_main_planet_spin_speed"]
 [connection signal="value_changed" from="menu/light" to="menu/controls" method="_on_light_value_changed"]
 [connection signal="toggled" from="menu/chroma" to="menu/controls" method="_on_chroma_toggled"]
 [connection signal="toggled" from="menu/kula" to="menu/controls" method="_on_kula_toggled"]
 [connection signal="toggled" from="menu/terrain" to="menu/controls" method="_on_terrain_toggled"]
 [connection signal="toggled" from="menu/grain" to="menu/controls" method="_on_grain_toggled"]
+
+[editable path="kulan"]

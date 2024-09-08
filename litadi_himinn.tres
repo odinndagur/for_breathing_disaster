@@ -1,0 +1,17 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://c82rgykrtn4hj"]
+
+[ext_resource type="Material" uid="uid://dj0rmw88cohjh" path="res://litadi_sky.tres" id="1_pqke4"]
+
+[sub_resource type="Sky" id="Sky_r8g6b"]
+sky_material = ExtResource("1_pqke4")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_r8g6b")
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.004
+fog_aerial_perspective = 0.92
+volumetric_fog_density = 0.246
+volumetric_fog_length = 146.91
+volumetric_fog_detail_spread = 0.5
+volumetric_fog_sky_affect = 0.0

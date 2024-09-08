@@ -1,0 +1,17 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://whbcnmh62rey"]
+
+[ext_resource type="Material" uid="uid://xbulgeceslnk" path="res://svarthviti_sky.tres" id="1_7js7h"]
+
+[sub_resource type="Sky" id="Sky_r8g6b"]
+sky_material = ExtResource("1_7js7h")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_r8g6b")
+ambient_light_sky_contribution = 0.0
+fog_enabled = true
+fog_density = 0.004
+fog_aerial_perspective = 0.92
+fog_sky_affect = 0.0
+volumetric_fog_density = 0.019
+volumetric_fog_length = 135.0

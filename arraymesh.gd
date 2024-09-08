@@ -22,10 +22,9 @@ const WIDTH = 1152
 const HEIGHT = 648
 
 const MIN_DB = 60
-
-
-
 #AUDIO STUFF
+
+var planet_spin_speed_multiplier = 1
 
 
 func generate_mesh():
@@ -93,7 +92,7 @@ func generate_mesh():
 	arr_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array)
 	mesh = arr_mesh
 	# Saves mesh to a .tres file with compression enabled.
-#	ResourceSaver.save(mesh, "res://sphere.tres", ResourceSaver.FLAG_COMPRESS)
+	#ResourceSaver.save(mesh, "res://sphere.tres", ResourceSaver.FLAG_COMPRESS)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -104,7 +103,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	generate_mesh()
-	rotate_z(delta/10.0)
+	rotate_z(delta/11.43*planet_spin_speed_multiplier)
+	rotate_x(delta/7.12*planet_spin_speed_multiplier)
+	rotate_y(delta/2.89*planet_spin_speed_multiplier)
+	#rotate_object_local(Vector3.UP,delta/5.0*planet_spin_speed_multiplier)
 
 
 #func audiostuff():
@@ -127,3 +129,8 @@ func _on_seethru_toggled(button_pressed):
 	else:
 		material_override.transparency = 0
 	
+
+
+func _on_main_planet_spin_speed(value) -> void:
+	planet_spin_speed_multiplier = value
+	pass # Replace with function body.
