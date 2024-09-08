@@ -54,6 +54,8 @@ The audio is directly affecting the planet's shape. All other aspects are contro
 8. Kannski búa til þráðlausar stjórngræjur sem t.d. einhver í salnum gæti fokkað í einhverju a akveðnum timapunkti (einn pottur eða takki eða eikka í boxi, 2.4ghz tengt við venjulega controllerinn)
 9. Mynstrið á plánetunni (hvíta/svarta materialið) morphar eins og rorschach í watchmen
 10. prófa aftur sem eg gerði einhverntíma með alvöru myndir af jörðinni nema hún var 100% svört en svo voru svæði mis reflective og hrjúf þannig það voru hellaðir detailar sem lookuðu eins og lönd en hun leit ekki ut eins og jörðin samt
+11. Fkn ná að gera dust skýið (alveg eins og particle 3d effectinn sem er í godot demoinu á síðunni þeirra) - helst ná að transitiona þangað úr noiseglitchinu þannig noisið brotni niður í svoleiðis ský
+12. kannski fleiri svona hlutir sem virka eins og alvöru hlutir nema bara fkd (svona upside down utgafa af alvöru heiminum dno)
 
 
 <!-- 
