@@ -23,10 +23,13 @@ alt="Demo" width="240" height="180" border="10" /></a>
 ## for breathing disaster ##
 
 This is a partially audio-reactive live controllable visualizer we made in Godot for a specific live set.
-It has multiple controllable elements that we mapped to a MIDI controller for live performance. It uses
-two separate screens (one projected on a large wall behind the performer, the other on a cloth screen in front of him).
-The large back screen shows a thin orange horizon and a tiny planet sort of shape in the distance. The small screen has
-a top down view of the same planet and we see that its circles of latitude are affected by the sounds we hear.
+It has multiple controllable elements that we mapped to a MIDI controller for live performance.
+
+We developed it on the fly with very rapid changes so the code is as messy as can be. This is the entire codebase so you can inspect/steal/look down on every part of it.
+
+It uses two separate screens (one projected on a large wall behind the performer, the other on a cloth screen in front of him).
+
+The large back screen shows a thin orange horizon and a tiny planet sort of shape in the distance. The small screen has a top down view of the same planet and we see that its circles of latitude are affected by the sounds we hear.
 
 ### Controls ###
 The audio is directly affecting the planet's shape. All other aspects are controlled live with some kind of controller. The first version had MIDI mapped controls for:
