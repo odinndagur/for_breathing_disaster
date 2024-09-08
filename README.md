@@ -42,6 +42,20 @@ The audio is directly affecting the planet's shape. All other aspects are contro
 7. Last but not least a destruction slider that adds grain and chromatic aberration that gets more and more intense until it starts strobing and turns into complete chaos
 
 
+
+### ísl pælingar ###
+1. Gera allt stærra (plánetan ekki "2m" og "500m" í burtu heldur pinu raunhæfari stærðir)
+2. Hægt að fara inn í plánetuna á einhverjum tímapunkti. Þá væri svona núningur og hljóðið færi að kurlast og molna niður og þegar við brotnum gegnum skelina væri svona gasský væbs inní eða eitthvað? held hljóðið þá low passað og allt frekar svona muffled og nett. kannski lo pass + reverb?
+3. Custom controller fyrir allt saman
+4. Hægt að stjórna lika litla skjanum betur
+5. DMX og tengja ljos inn í showið. t.d. hafa reyk á sviðinu og baklýsingu sem matchar horizonið (ef appelsinugult þa ljosið lika, ef s/h þá ljosið hvítt, ef feidar út þa feidar ljosið)
+6. Láta sjóndeildarhringinn nötra - svipuð pæling og með camera shake ef fer yfir einhvern þröskuld
+7. geta smá klippt á milli sena (t.d. vera alveg upp við plánetuna hun snyst a milljon og glitchið er á fullu en geta triggerað að allt í einu erum við lengst í burtu og allt serene eða eitthvað)
+8. Kannski búa til þráðlausar stjórngræjur sem t.d. einhver í salnum gæti fokkað í einhverju a akveðnum timapunkti (einn pottur eða takki eða eikka í boxi, 2.4ghz tengt við venjulega controllerinn)
+9. Mynstrið á plánetunni (hvíta/svarta materialið) morphar eins og rorschach í watchmen
+10. prófa aftur sem eg gerði einhverntíma með alvöru myndir af jörðinni nema hún var 100% svört en svo voru svæði mis reflective og hrjúf þannig það voru hellaðir detailar sem lookuðu eins og lönd en hun leit ekki ut eins og jörðin samt
+
+
 <!-- 
 It starts with a 
 weird planet kind of shape floating in space and rotating, way in the distance. Behind the planet is a thin orange
