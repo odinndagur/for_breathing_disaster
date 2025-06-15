@@ -1,5 +1,5 @@
 # for breathing disaster # 
-Live visualizer for *BRIDGES IV - for breathing disaster* by Ægir Sindri Bjarnason.
+Live visualizer I made for *BRIDGES IV - for breathing disaster* by Ægir Sindri Bjarnason.
 
 
 <picture>
@@ -22,10 +22,10 @@ alt="Demo" width="240" height="180" border="10" /></a>
 
 ## for breathing disaster ##
 
-This is a partially audio-reactive live controllable visualizer we made in Godot for a specific live set.
-It has multiple controllable elements that we mapped to a MIDI controller for live performance.
+This is a partially audio-reactive live controllable visualizer I made in Godot for a specific live set.
+It has multiple controllable elements that I mapped to a MIDI controller for live performance.
 
-We developed it on the fly with very rapid changes so the code is as messy as can be. This is the entire codebase so you can inspect/steal/look down on every part of it.
+I developed it on the fly with very rapid changes so the code is as messy as can be. This is the entire codebase so you can inspect/steal/look down on every part of it.
 
 It uses two separate screens (one projected on a large wall behind the performer, the other on a cloth screen in front of him).
 
