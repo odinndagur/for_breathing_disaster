@@ -1,33 +1,10 @@
 # for breathing disaster # 
-Live visualizer I made for *BRIDGES IV - for breathing disaster* by Ægir Sindri Bjarnason.
-
-
-<picture>
-  <img alt="Example 1" src="images/vintage_litir2.png">
-</picture>
-
-
-<picture>
-  <img alt="Example 2" src="images/bw.png">
-</picture>
-
-
-<picture>
-  <img alt="Example 3" src="images/rautt_mikid_noise.png">
-</picture>
-
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=Iujgjn5zlJ4
-" target="_blank"><img src="http://img.youtube.com/vi/Iujgjn5zlJ4/0.jpg" 
-alt="Demo" width="240" height="180" border="10" /></a>
-
-## for breathing disaster ##
-
 This is a partially audio-reactive live controllable visualizer I made in Godot for a specific live set.
 It has multiple controllable elements that I mapped to a MIDI controller for live performance.
 
 I developed it on the fly with very rapid changes so the code is as messy as can be. This is the entire codebase so you can inspect/steal/look down on every part of it.
 
-It uses two separate screens (one projected on a large wall behind the performer, the other on a cloth screen in front of him).
+It uses two separate screens (one projected on a large wall behind the performer, the other on a cloth screen in front of them).
 
 The large back screen shows a thin orange horizon and a tiny planet sort of shape in the distance. The small screen has a top down view of the same planet and we see that its circles of latitude are affected by the sounds we hear.
 
